@@ -2,10 +2,7 @@ package ru.aston.lessons;
 
 public class Main {
     public static void main(String[] args) {
-        hello();
+        System.out.println(MyMethods1.SumBetween10And20(5, 14));
     }
 
-    public static void hello(){
-        System.out.println("Lesson_1");
-    }
 }
