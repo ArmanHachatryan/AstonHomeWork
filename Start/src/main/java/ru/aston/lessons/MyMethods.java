@@ -12,7 +12,7 @@ public final class MyMethods {
         }
     }
 
-    public static void checkSumSign(double a, double b) {
+    public static void checkSumSign(int a, int b) {
         if ((a+b) >= 0) {
             System.out.println("Сумма положительная");
         }
@@ -21,7 +21,7 @@ public final class MyMethods {
         }
     }
 
-    public static void printColor(double value){
+    public static void printColor(int value){
         if (value <= 0) {
             System.out.println("Красный");
         }
@@ -33,7 +33,7 @@ public final class MyMethods {
         }
     }
 
-    public static void compareNumber(double a, double b) {
+    public static void compareNumber(int a, int b) {
         if (a >= b) System.out.println("a >= b");
         else System.out.println("a < b");
     }

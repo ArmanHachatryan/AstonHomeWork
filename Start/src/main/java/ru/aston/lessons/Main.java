@@ -13,9 +13,9 @@ public class Main {
 
         MyMethods.checkSumSign(5, 3);
 
-        MyMethods.printColor(0.5);
+        MyMethods.printColor(15);
 
-        MyMethods.compareNumber(5, 4.5);
+        MyMethods.compareNumber(7, 4);
     }
 
 
