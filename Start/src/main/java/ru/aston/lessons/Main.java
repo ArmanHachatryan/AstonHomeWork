@@ -2,10 +2,15 @@ package ru.aston.lessons;
 
 public class Main {
     public static void main(String[] args) {
-        hello();
+        TeacherLogic logic = new TeacherLogic();
+        Student student = new Student();
+        logic.expelledProcess(42, student);
+        logic.expelledProcess(6, student);
+
+
+        TeacherCreator.createTeacher(5);
     }
 
-    public static void hello(){
-        System.out.println("Lesson_1");
-    }
+
 }
+
