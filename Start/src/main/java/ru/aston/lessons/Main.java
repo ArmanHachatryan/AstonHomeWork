@@ -2,20 +2,13 @@ package ru.aston.lessons;
 
 public class Main {
     public static void main(String[] args) {
+        OperationWithStr.printThreeWords();
 
-        String[] words = {"Banana", "Orange", "Apple"};
+        OperationWithNumbers.checkSumSign(5, 3);
 
-//        for (var word: words) {
-//            MyMethods.printWord(word);
-//        }
+        OperationWithStr.printColor(15);
 
-        MyMethods.printThreeWords(words);
-
-        MyMethods.checkSumSign(5, 3);
-
-        MyMethods.printColor(15);
-
-        MyMethods.compareNumber(7, 4);
+        OperationWithNumbers.compareNumber(7, 4);
     }
 
 
