@@ -1,14 +1,14 @@
 package ru.aston.lessons;
 
-public final class MyMethods1 {
-    private MyMethods1() {}
+public final class OperationWithNumber {
+    private OperationWithNumber() {}
 
     public static boolean sumBetween10And20(int a, int b){
         int sum = a + b;
         return (10 <= sum) && (sum <= 20);
     }
 
-    public static void isPositive(int a){
+    public static void isPositiveOrNot(int a){
         if (a < 0) System.out.println("Отрицательное");
         else System.out.println("Положительное");
     }
