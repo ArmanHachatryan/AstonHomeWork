@@ -24,6 +24,14 @@ public final class OperationWithArray {
         }
     }
 
+    public static int[] fill(int len, int initialValue){
+        int[] array = new int[len];
+        for (int i = 0; i < len; i++){
+            array[i] = initialValue;
+        }
+        return array;
+    }
+
     public static void increaseSmallNumbers(int[] a) {
         int N = a.length;
         for (int i = 0; i < N; i++) {
@@ -39,15 +47,6 @@ public final class OperationWithArray {
         }
 
     }
-
-    public static int[] fill(int len, int initialValue){
-        int[] array = new int[len];
-        for (int i = 0; i < len; i++){
-            array[i] = initialValue;
-        }
-        return array;
-    }
-
 
     public static void printArray(int[] a){
         for (var item: a) {
