@@ -43,7 +43,7 @@ public final class OperationWithArray {
         int N = a.length -1;
         for (int i = 0; i <= N;i++){
             a[i][i] = 1;
-            a[i][N-i] = 1;
+            a[i][N - i] = 1;
         }
 
     }
