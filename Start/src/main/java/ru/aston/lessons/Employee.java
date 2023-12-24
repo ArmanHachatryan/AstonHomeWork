@@ -1,37 +1,39 @@
 package ru.aston.lessons;
+import java.util.Objects;
 
 public class Employee {
     private String firstName;
+
     private String lastName;
+
     private String middleName;
+
     private String fullName;
+
     private String jobTitle;
+
     private String email;
+
     private long phoneNumber;
+
     private int age;
+
     private double salary;
 
     public Employee() {
-        this(
-                "default",
-                "default",
-                "default",
-                "default",
-                "default@mail.ru",
-                79999999999L,
-                0,
-                0
-        );
     }
 
-    public Employee(String fullName, String jobTitle, String email, long phoneNumber, double salary, int age) {
-        this.fullName = fullName;
-        parseFullName(fullName);
-        this.jobTitle = jobTitle;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.salary = salary;
-        this.age = age;
+    public Employee(String firstName, String middleName, String lastName, long phoneNumber, int age) {
+        this(
+                firstName,
+                middleName,
+                lastName,
+                "intern",
+                lastName + "@mailbox.com",
+                phoneNumber,
+                17500,
+                age
+        );
     }
 
     public Employee(String firstName, String middleName, String lastName, String jobTitle,
@@ -42,17 +44,12 @@ public class Employee {
         this.lastName = lastName;
         this.middleName = middleName;
         this.jobTitle = jobTitle;
-        this.email = email;
+        this.email = email.toLowerCase();
         this.phoneNumber = phoneNumber;
         this.salary = salary;
         this.age = age;
     }
 
-    private void parseFullName(String fullName){
-        this.lastName = fullName.split("\\s")[0];
-        this.firstName = fullName.split("\\s")[1];
-        this.middleName = fullName.split("\\s")[2];
-    }
     public String getFirstName() {
         return firstName;
     }
@@ -81,12 +78,12 @@ public class Employee {
         return phoneNumber;
     }
 
-    public int getAge() {
-        return age;
-    }
-
     public double getSalary() {
         return salary;
+    }
+
+    public int getAge() {
+        return age;
     }
 
     @Override
@@ -98,7 +95,27 @@ public class Employee {
                 ", phoneNumber=" + phoneNumber +
                 ", salary=" + salary +
                 ", age=" + age +
-                '}';
+        '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return phoneNumber == employee.phoneNumber && age == employee.age &&
+                Double.compare(salary, employee.salary) == 0 &&
+                Objects.equals(firstName, employee.firstName) &&
+                Objects.equals(lastName, employee.lastName) &&
+                Objects.equals(middleName, employee.middleName) &&
+                Objects.equals(jobTitle, employee.jobTitle) &&
+                Objects.equals(email, employee.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, middleName, fullName,
+                jobTitle, email, phoneNumber, age, salary);
     }
 
     public void Print() {
