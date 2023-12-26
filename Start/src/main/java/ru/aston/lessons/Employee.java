@@ -21,6 +21,16 @@ public class Employee {
     private double salary;
 
     public Employee() {
+        this(
+                "Ivan",
+                "Ivanovich",
+                "Ivanov",
+                "Intern",
+                "ivan@mailbox.com",
+                799999999,
+                0,
+                23
+        );
     }
 
     public Employee(String firstName, String middleName, String lastName, long phoneNumber, int age) {
