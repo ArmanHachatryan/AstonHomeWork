@@ -13,7 +13,7 @@ public class Main {
 
         System.out.println(OperationWithYear.isLeap(1920)); //5
 
-        int[] numbers = { 1, 1, 0, 0, 1, 0, 1, 1, 0, 0 }; //6
+        int[] numbers = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0}; //6
         OperationWithArray.logicalNegation(numbers);
         OperationWithArray.printArray(numbers);
 
@@ -29,7 +29,7 @@ public class Main {
         OperationWithArray.fillDiagonals(doubleArray);
         OperationWithArray.printArray(doubleArray);
 
-        int[] myArray = OperationWithArray.fill(5, 3); //10
+        int[] myArray = OperationWithArray.getAndFillArray(5, 3); //10
         OperationWithArray.printArray(myArray); //1
     }
 
