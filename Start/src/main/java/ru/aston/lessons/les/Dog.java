@@ -1,6 +1,7 @@
-package ru.aston.lessons;
+package ru.aston.lessons.les;
 
 public class Dog extends Animal {
+
     public Dog() {
         runLimit = 500;
         swimLimit = 10;

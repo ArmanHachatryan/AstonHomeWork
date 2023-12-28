@@ -1,4 +1,4 @@
-package ru.aston.lessons;
+package ru.aston.lessons.les;
 
 public class Animal {
 
