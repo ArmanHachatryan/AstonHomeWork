@@ -1,14 +1,13 @@
 package ru.aston.lessons;
 
 public class Dog extends Animal {
-
-    @Override
-    void run() {
-
+    public Dog() {
+        runLimit = 500;
+        swimLimit = 10;
     }
 
     @Override
-    void swim() {
-
+    public String toString() {
+        return "Dog";
     }
 }

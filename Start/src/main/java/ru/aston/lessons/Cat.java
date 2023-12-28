@@ -2,19 +2,20 @@ package ru.aston.lessons;
 
 public class Cat extends Animal {
 
+    private static int countCat;
+
     public Cat() {
+        countCat++;
         runLimit = 200;
         swimLimit = 0;
     }
 
-    @Override
-    void run(int distance) {
-        if (distance <= runLimit)
-            System.out.println("Good");
+    public static void getCountCat() {
+        System.out.println(countCat);
     }
 
     @Override
-    void swim(int distance) {
-        System.out.println(swimLimit);
+    public String toString() {
+        return "Cat";
     }
 }
