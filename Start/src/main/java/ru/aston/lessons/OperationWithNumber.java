@@ -10,8 +10,8 @@ public final class OperationWithNumber {
     }
 
     public static void isPositiveOrNot(int a) {
-        if (a < 0) System.out.println("Отрицательное");
-        else System.out.println("Положительное");
+        String result = (a < 0) ? "Отрицательное" : "Положительное";
+        System.out.println(result);
     }
 
     public static boolean isNegative(int a) {
