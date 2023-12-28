@@ -2,21 +2,21 @@ package ru.aston.lessons.animalLib;
 
 public final class Bowl {
 
-    private static int food;
+    private int food;
 
     private Bowl() {
     }
 
-    public static int getFood() {
+    public int getFood() {
         return food;
     }
 
-    public static boolean increase(int num) {
+    public boolean increase(int num) {
         food = food + num;
         return true;
     }
 
-    public static boolean decrease(int num) {
+    public boolean decrease(int num) {
         if (num > food) {
             return false;
         }
