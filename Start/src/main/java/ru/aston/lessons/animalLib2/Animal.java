@@ -1,6 +1,6 @@
-package ru.aston.lessons.les;
+package ru.aston.lessons.animalLib2;
 
-public class Animal {
+public abstract class Animal {
 
     protected static int count = 0;
     protected int runLimit;

@@ -1,4 +1,4 @@
-package ru.aston.lessons.les;
+package ru.aston.lessons.animalLib2;
 
 public class Cat extends Animal {
 

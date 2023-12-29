@@ -1,10 +1,10 @@
 package ru.aston.lessons.animalLib;
 
-public final class Bowl {
+public class Bowl {
 
     private int food;
 
-    private Bowl() {
+    public Bowl() {
     }
 
     public int getFood() {
