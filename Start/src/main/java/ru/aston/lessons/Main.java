@@ -21,6 +21,10 @@ public class Main {
             }
         }
 
+        System.out.println(bowl.getFoodCount());
+
         bowl.increase(60);
+
+        System.out.println(bowl.getFoodCount());
     }
 }
