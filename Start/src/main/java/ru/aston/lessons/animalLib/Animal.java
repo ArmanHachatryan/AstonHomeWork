@@ -2,13 +2,12 @@ package ru.aston.lessons.animalLib;
 
 public abstract class Animal {
 
-    private static int countAnimal;
-    protected String name;
+    protected static int countAnimal;
     protected int runLimit;
+    protected String name;
     protected int swimLimit;
 
     {
-        System.out.println("Block Animal");
         countAnimal++;
     }
 
@@ -19,4 +18,6 @@ public abstract class Animal {
     public abstract void run(int distance);
 
     public abstract void swim(int distance);
+
+
 }

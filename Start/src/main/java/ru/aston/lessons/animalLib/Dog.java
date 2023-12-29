@@ -17,13 +17,19 @@ public class Dog extends Animal {
 
     @Override
     public void run(int distance) {
-        String result = (distance < runLimit) ? "Бобик пробежал" : "Бобик не смог пробежать";
-        System.out.println(result + " " + runLimit);
+        String result = (distance < runLimit)
+                ? String.format("%s пробежал(а) %dм", name, distance)
+                : String.format("%s не пробежал(а) %dм, ограничение: %dм", name, distance, runLimit);
+
+        System.out.println(result);
     }
 
     @Override
     public void swim(int distance) {
-        String result = (distance < swimLimit) ? "Бобик проплыл" : "Бобик не смог проплыть";
-        System.out.println(result + " " + swimLimit);
+        String result = (distance < swimLimit)
+                ? String.format("%s проплыл(а) %dм", name, distance)
+                : String.format("%s не проплыл(а) %dм, ограничение: %dм", name, distance, runLimit);
+
+        System.out.println(result);
     }
 }

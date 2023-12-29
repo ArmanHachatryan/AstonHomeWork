@@ -11,6 +11,16 @@ public class Main {
         Cat cat1 = new Cat("Пушистик");
 
         Dog dog1 = new Dog("Бобик");
-        
+
+        System.out.println(Cat.getCount());
+        System.out.println(Dog.getCount());
+        System.out.println(Cat.getCountAnimal());
+
+        cat1.run(300);
+
+        dog1.swim(5);
+
+        animal.swim(40);
+
     }
 }
