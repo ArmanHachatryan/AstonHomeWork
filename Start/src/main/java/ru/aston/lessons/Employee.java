@@ -1,4 +1,5 @@
 package ru.aston.lessons;
+
 import java.util.Objects;
 
 public class Employee {
@@ -47,9 +48,8 @@ public class Employee {
     }
 
     public Employee(String firstName, String middleName, String lastName, String jobTitle,
-                    String email, long phoneNumber, double salary, int age)
-    {
-        this.fullName = String.format("%s %s %s", lastName, firstName,  middleName );
+                    String email, long phoneNumber, double salary, int age) {
+        this.fullName = String.format("%s %s %s", lastName, firstName, middleName);
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleName = middleName;
@@ -80,6 +80,10 @@ public class Employee {
         return jobTitle;
     }
 
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -90,6 +94,10 @@ public class Employee {
 
     public double getSalary() {
         return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
     }
 
     public int getAge() {
@@ -105,7 +113,7 @@ public class Employee {
                 ", phoneNumber=" + phoneNumber +
                 ", salary=" + salary +
                 ", age=" + age +
-        '}';
+                '}';
     }
 
     @Override
@@ -131,12 +139,12 @@ public class Employee {
     public void Print() {
         System.out.printf(
                 "Сотрудник\n" +
-                "ФИО: %s\n" +
-                "Должность: %s\n" +
-                "Почта: %s\n" +
-                "Телефонный номер: +%d\n" +
-                "Зарплата: %.2f\n" +
-                "Возраст: %d\n"
+                        "ФИО: %s\n" +
+                        "Должность: %s\n" +
+                        "Почта: %s\n" +
+                        "Телефонный номер: +%d\n" +
+                        "Зарплата: %.2f\n" +
+                        "Возраст: %d\n"
                 , fullName, jobTitle, email, phoneNumber, salary, age
         );
     }
