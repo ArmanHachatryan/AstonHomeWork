@@ -2,19 +2,16 @@ package ru.aston.lessons;
 
 public final class OperationWithNumbers {
 
-    private OperationWithNumbers() {}
+    private OperationWithNumbers() {
+    }
 
     public static void checkSumSign(int a, int b) {
-        if ( (a + b) >= 0) {
-            System.out.println("Сумма положительная");
-        }
-        else {
-            System.out.println("Сумма отрицательная");
-        }
+        String result = ((a + b) >= 0) ? "Сумма положительная" : "Сумма отрицательная";
+        System.out.println(result);
     }
 
     public static void compareNumber(int a, int b) {
-        if (a >= b) System.out.println("a >= b");
-        else System.out.println("a < b");
+        String result = (a >= b) ? "a >= b" : "a < b";
+        System.out.println(result);
     }
 }
