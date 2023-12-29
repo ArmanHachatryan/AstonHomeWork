@@ -2,9 +2,10 @@ package ru.aston.lessons.animalLib;
 
 public abstract class Animal {
 
-    protected static int countAnimal;
-    protected int runLimit;
+    private static int countAnimal;
+
     protected String name;
+    protected int runLimit;
     protected int swimLimit;
 
     {
