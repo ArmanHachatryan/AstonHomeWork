@@ -1,26 +1,26 @@
 package ru.aston.lessons;
 
-import ru.aston.lessons.animalLib.Animal;
+import ru.aston.lessons.animalLib.Bowl;
 import ru.aston.lessons.animalLib.Cat;
-import ru.aston.lessons.animalLib.Dog;
 
 public class Main {
     public static void main(String[] args) {
-        Animal animal = new Cat("Барсик");
 
-        Cat cat1 = new Cat("Пушистик");
+        Cat[] cats = {
+                new Cat("Barsik"),
+                new Cat("White"),
+                new Cat("Red")
+        };
 
-        Dog dog1 = new Dog("Бобик");
+        Bowl bowl = new Bowl(30);
 
-        System.out.println(Cat.getCount());
-        System.out.println(Dog.getCount());
-        System.out.println(Cat.getCountAnimal());
+        for (var cat : cats) {
+            if (!cat.isFull()) {
+                cat.eat(20, bowl);
+                System.out.println(cat.getName() + " " + cat.isFull());
+            }
+        }
 
-        cat1.run(300);
-
-        dog1.swim(5);
-
-        animal.swim(40);
-
+        bowl.increase(60);
     }
 }

@@ -2,16 +2,28 @@ package ru.aston.lessons.animalLib;
 
 public class Cat extends Animal {
 
-    private static int count;
+    private static int catCount;
+
+    private boolean isFull;
 
     public Cat(String name) {
         this.name = name;
         this.runLimit = 200;
-        count++;
+        this.isFull = false;
+        catCount++;
     }
 
-    public static int getCount() {
-        return count;
+    public static int getCatCount() {
+        return catCount;
+    }
+
+
+    public boolean isFull() {
+        return isFull;
+    }
+
+    public void eat(int count, Bowl bowl) {
+        isFull = bowl.decrease(count);
     }
 
     public void run(int distance) {

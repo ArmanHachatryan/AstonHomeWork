@@ -2,17 +2,17 @@ package ru.aston.lessons.animalLib;
 
 public class Dog extends Animal {
 
-    private static int count;
+    private static int dogCount;
 
     public Dog(String name) {
         this.name = name;
         this.swimLimit = 10;
         this.runLimit = 500;
-        count++;
+        dogCount++;
     }
 
-    public static int getCount() {
-        return count;
+    public static int getDogCount() {
+        return dogCount;
     }
 
     @Override
