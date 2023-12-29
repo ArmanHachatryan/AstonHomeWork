@@ -10,11 +10,4 @@ public class Main {
 
         OperationWithNumbers.compareNumber(7, 4);
     }
-
-
-
-
-
-
-
 }
