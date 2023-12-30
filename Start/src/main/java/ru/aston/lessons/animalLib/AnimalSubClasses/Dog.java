@@ -37,7 +37,7 @@ public class Dog extends Animal {
     @Override
     public void getInfo() {
         System.out.printf(
-                this + "\n" +
+                "Собака\n" +
                         "Кличка: %s\n" +
                         "Лимит по бегу: %s\n" +
                         "Лимит по плаванию: %s\n"
