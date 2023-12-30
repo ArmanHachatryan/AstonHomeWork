@@ -1,4 +1,4 @@
-package ru.aston.lessons.animalLib;
+package ru.aston.lessons.animalLib.Abstracts;
 
 public abstract class Animal {
 

@@ -1,7 +1,11 @@
 package ru.aston.lessons;
 
+import ru.aston.lessons.animalLib.AnimalSubClasses.Cat;
 import ru.aston.lessons.animalLib.Bowl;
-import ru.aston.lessons.animalLib.Cat;
+import ru.aston.lessons.geometricLib.Abstracts.Shape;
+import ru.aston.lessons.geometricLib.ShapeSubClasses.Circle;
+import ru.aston.lessons.geometricLib.ShapeSubClasses.Rectangle;
+import ru.aston.lessons.geometricLib.ShapeSubClasses.Triangle;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,10 +25,14 @@ public class Main {
             }
         }
 
-        System.out.println(bowl.getFoodCount());
+        Shape[] shapes = {
+                new Rectangle(5, 4, Color.Red, Color.Green),
+                new Triangle(6, 9, 4, Color.White, Color.Yellow),
+                new Circle(10, Color.Black, Color.Purple)
+        };
 
-        bowl.increase(60);
-
-        System.out.println(bowl.getFoodCount());
+        for (var shape : shapes) {
+            System.out.println(shape);
+        }
     }
 }

@@ -1,4 +1,6 @@
-package ru.aston.lessons.animalLib;
+package ru.aston.lessons.animalLib.AnimalSubClasses;
+
+import ru.aston.lessons.animalLib.Abstracts.Animal;
 
 public class Dog extends Animal {
 

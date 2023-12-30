@@ -1,4 +1,7 @@
-package ru.aston.lessons.animalLib;
+package ru.aston.lessons.animalLib.AnimalSubClasses;
+
+import ru.aston.lessons.animalLib.Abstracts.Animal;
+import ru.aston.lessons.animalLib.Bowl;
 
 public class Cat extends Animal {
 
