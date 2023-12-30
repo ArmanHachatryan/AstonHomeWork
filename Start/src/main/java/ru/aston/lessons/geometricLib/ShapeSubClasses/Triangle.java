@@ -31,15 +31,18 @@ public class Triangle extends Shape implements ShapePerimeter, ShapeArea {
     }
 
     @Override
-    public String toString() {
-        return "Triangle{" +
-                "sideA=" + sideA +
-                ", sideB=" + sideB +
-                ", sideC=" + sideC +
-                ", backgroundColor='" + backgroundColor + '\'' +
-                ", borderColor='" + borderColor + '\'' +
-                ", P='" + calculatePerimeter() + '\'' +
-                ", S='" + calculateArea() + '\'' +
-                '}';
+    public void getInfo() {
+        System.out.printf(
+                "Triangle {" +
+                        "sideA = %.2f" +
+                        ", sideB = %.2f" +
+                        ", sideC = %.2f" +
+                        ", backgroundColor = %s" +
+                        ", borderColor = %s" +
+                        ", P = %.3f" +
+                        ", S = %.3f" +
+                        "}\n"
+                , sideA, sideB, sideC, backgroundColor, borderColor, calculatePerimeter(), calculateArea()
+        );
     }
 }

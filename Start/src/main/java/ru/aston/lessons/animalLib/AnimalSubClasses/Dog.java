@@ -37,10 +37,10 @@ public class Dog extends Animal {
     @Override
     public void getInfo() {
         System.out.printf(
-                "Собака\n" +
-                        "Кличка: %s\n" +
-                        "Лимит по бегу: %s\n" +
-                        "Лимит по плаванию: %s\n"
+                "Dog\n " +
+                        "PetName: %s\n " +
+                        "RunLimit: %s m\n " +
+                        "SwimLimit: %s m\n"
                 , name, runLimit, swimLimit
         );
     }

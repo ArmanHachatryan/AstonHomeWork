@@ -25,13 +25,16 @@ public class Circle extends Shape implements ShapePerimeter, ShapeArea {
     }
 
     @Override
-    public String toString() {
-        return "Circle{" +
-                "radius=" + radius +
-                ", backgroundColor='" + backgroundColor + '\'' +
-                ", borderColor='" + borderColor + '\'' +
-                ", P='" + calculatePerimeter() + '\'' +
-                ", S='" + calculateArea() + '\'' +
-                '}';
+    public void getInfo() {
+        System.out.printf(
+                "Circle {" +
+                        "radius = %.2f" +
+                        ", backgroundColor = %s" +
+                        ", borderColor = %s" +
+                        ", P = %.3f" +
+                        ", S = %.3f" +
+                        "}\n"
+                , radius, backgroundColor, borderColor, calculatePerimeter(), calculateArea()
+        );
     }
 }

@@ -27,14 +27,17 @@ public class Rectangle extends Shape implements ShapePerimeter, ShapeArea {
     }
 
     @Override
-    public String toString() {
-        return "Rectangle{" +
-                "sideA=" + sideA +
-                ", sideB=" + sideB +
-                ", backgroundColor='" + backgroundColor + '\'' +
-                ", borderColor='" + borderColor + '\'' +
-                ", P='" + calculatePerimeter() + '\'' +
-                ", S='" + calculateArea() + '\'' +
-                '}';
+    public void getInfo() {
+        System.out.printf(
+                "Rectangle {" +
+                        "sideA = %.2f" +
+                        ", sideB = %.2f" +
+                        ", backgroundColor = %s" +
+                        ", borderColor = %s" +
+                        ", P = %.3f" +
+                        ", S = %.3f" +
+                        "}\n"
+                , sideA, sideB, backgroundColor, borderColor, calculatePerimeter(), calculateArea()
+        );
     }
 }

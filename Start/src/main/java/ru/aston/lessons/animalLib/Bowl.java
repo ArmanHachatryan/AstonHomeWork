@@ -7,10 +7,6 @@ public class Bowl {
         this.foodCount = foodCount;
     }
 
-    public int getFoodCount() {
-        return foodCount;
-    }
-
     public boolean increase(int foodCount) {
         this.foodCount += foodCount;
         return true;
@@ -27,8 +23,8 @@ public class Bowl {
 
     public void getInfo() {
         System.out.printf(
-                "Миска\n" +
-                        "Количество еды: %s\n"
+                "Bowl\n" +
+                        "food Count: %s\n"
                 , foodCount
         );
     }

@@ -1,5 +1,6 @@
 package ru.aston.lessons;
 
+import ru.aston.lessons.animalLib.Abstracts.Animal;
 import ru.aston.lessons.animalLib.AnimalSubClasses.Cat;
 import ru.aston.lessons.animalLib.AnimalSubClasses.Dog;
 import ru.aston.lessons.animalLib.Bowl;
@@ -21,14 +22,22 @@ public class Main {
 
         for (var cat : cats) {
             if (!cat.isFull()) {
+                cat.swim(5);
+                cat.run(54);
+
+                System.out.println();
+
                 cat.eat(20, bowl);
                 cat.getInfo();
+
                 System.out.println();
             }
         }
 
         Dog dog = new Dog("Rex");
         dog.getInfo();
+
+        System.out.println();
 
         Shape[] shapes = {
                 new Rectangle(5, 4, Color.Red, Color.Green),
@@ -37,7 +46,7 @@ public class Main {
         };
 
         for (var shape : shapes) {
-            System.out.println(shape);
+            shape.getInfo();
         }
     }
 }

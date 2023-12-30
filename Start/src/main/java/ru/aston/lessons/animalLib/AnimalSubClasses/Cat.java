@@ -42,11 +42,11 @@ public class Cat extends Animal {
     @Override
     public void getInfo() {
         System.out.printf(
-                "Кот\n" +
-                        "Кличка: %s\n" +
-                        "Лимит по бегу: %s м\n" +
-                        "Лимит по плаванию: %s м\n" +
-                        "Сытость: %b%n"
+                "Cat\n " +
+                        "PetName: %s\n " +
+                        "RunLimit: %s m\n " +
+                        "SwimLimit: %s m\n " +
+                        "isFull: %b%n"
                 , name, runLimit, swimLimit, isFull
         );
     }
