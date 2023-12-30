@@ -3,7 +3,6 @@ package ru.aston.lessons.animalLib.AnimalSubClasses;
 import ru.aston.lessons.animalLib.Abstracts.Animal;
 
 public class Dog extends Animal {
-
     private static int dogCount;
 
     public Dog(String name) {

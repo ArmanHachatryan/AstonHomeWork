@@ -1,7 +1,6 @@
 package ru.aston.lessons.animalLib;
 
 public class Bowl {
-
     private int foodCount;
 
     public Bowl(int foodCount) {

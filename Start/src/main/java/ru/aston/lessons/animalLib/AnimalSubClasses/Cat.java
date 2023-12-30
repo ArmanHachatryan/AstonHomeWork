@@ -4,9 +4,7 @@ import ru.aston.lessons.animalLib.Abstracts.Animal;
 import ru.aston.lessons.animalLib.Bowl;
 
 public class Cat extends Animal {
-
     private static int catCount;
-
     private boolean isFull;
 
     public Cat(String name) {
@@ -19,7 +17,6 @@ public class Cat extends Animal {
     public static int getCatCount() {
         return catCount;
     }
-
 
     public boolean isFull() {
         return isFull;
