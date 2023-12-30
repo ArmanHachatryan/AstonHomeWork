@@ -33,4 +33,15 @@ public class Dog extends Animal {
 
         System.out.println(result);
     }
+
+    @Override
+    public void getInfo() {
+        System.out.printf(
+                this + "\n" +
+                        "Кличка: %s\n" +
+                        "Лимит по бегу: %s\n" +
+                        "Лимит по плаванию: %s\n"
+                , name, runLimit, swimLimit
+        );
+    }
 }

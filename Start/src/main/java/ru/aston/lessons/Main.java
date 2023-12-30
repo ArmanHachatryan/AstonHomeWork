@@ -21,18 +21,17 @@ public class Main {
         for (var cat : cats) {
             if (!cat.isFull()) {
                 cat.eat(20, bowl);
-                System.out.println(cat.getName() + " " + cat.isFull());
             }
         }
 
-        Shape[] shapes = {
-                new Rectangle(5, 4, Color.Red, Color.Green),
-                new Triangle(6, 9, 4, Color.White, Color.Yellow),
-                new Circle(10, Color.Black, Color.Purple)
-        };
-
-        for (var shape : shapes) {
-            System.out.println(shape);
-        }
+//        Shape[] shapes = {
+//                new Rectangle(5, 4, Color.Red, Color.Green),
+//                new Triangle(6, 9, 4, Color.White, Color.Yellow),
+//                new Circle(10, Color.Black, Color.Purple)
+//        };
+//
+//        for (var shape : shapes) {
+//            System.out.println(shape);
+//        }
     }
 }

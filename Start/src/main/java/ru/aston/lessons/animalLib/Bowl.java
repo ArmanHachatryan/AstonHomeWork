@@ -24,4 +24,12 @@ public class Bowl {
         }
         return result;
     }
+
+    public void getInfo() {
+        System.out.printf(
+                "Миска\n" +
+                        "Количество еды: %s\n"
+                , foodCount
+        );
+    }
 }
