@@ -7,7 +7,8 @@ public abstract class Animal {
     protected int runLimit;
     protected int swimLimit;
 
-    {
+    public Animal(String name) {
+        this.name = name;
         countAnimal++;
     }
 

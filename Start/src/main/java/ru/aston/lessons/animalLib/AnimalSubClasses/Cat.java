@@ -8,7 +8,7 @@ public class Cat extends Animal {
     private boolean isFull;
 
     public Cat(String name) {
-        this.name = name;
+        super(name);
         this.runLimit = 200;
         this.isFull = false;
         catCount++;

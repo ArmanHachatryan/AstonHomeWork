@@ -6,7 +6,7 @@ public class Dog extends Animal {
     private static int dogCount;
 
     public Dog(String name) {
-        this.name = name;
+        super(name);
         this.swimLimit = 10;
         this.runLimit = 500;
         dogCount++;
