@@ -12,11 +12,10 @@ public class Triangle extends Shape implements ShapePerimeter, ShapeArea {
     private double sideC;
 
     public Triangle(double sideA, double sideB, double sideC, Color backgroundColor, Color borderColor) {
+        super(backgroundColor, borderColor);
         this.sideA = sideA;
         this.sideB = sideB;
         this.sideC = sideC;
-        this.backgroundColor = backgroundColor;
-        this.borderColor = borderColor;
     }
 
     @Override

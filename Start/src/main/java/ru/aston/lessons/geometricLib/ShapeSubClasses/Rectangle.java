@@ -10,10 +10,9 @@ public class Rectangle extends Shape implements ShapePerimeter, ShapeArea {
     private double sideB;
 
     public Rectangle(double sideA, double sideB, Color backgroundColor, Color borderColor) {
+        super(backgroundColor, borderColor);
         this.sideA = sideA;
         this.sideB = sideB;
-        this.backgroundColor = backgroundColor;
-        this.borderColor = borderColor;
     }
 
     @Override

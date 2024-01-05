@@ -6,12 +6,11 @@ import ru.aston.lessons.geometricLib.Interfaces.ShapeArea;
 import ru.aston.lessons.geometricLib.Interfaces.ShapePerimeter;
 
 public class Circle extends Shape implements ShapePerimeter, ShapeArea {
-    private double radius;
+    private final double radius;
 
     public Circle(double radius, Color backgroundColor, Color borderColor) {
+        super(backgroundColor, borderColor);
         this.radius = radius;
-        this.backgroundColor = backgroundColor;
-        this.borderColor = borderColor;
     }
 
     @Override
