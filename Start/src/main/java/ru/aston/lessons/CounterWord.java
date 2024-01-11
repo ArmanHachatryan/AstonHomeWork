@@ -1,34 +1,33 @@
 package ru.aston.lessons;
 
 import java.util.HashMap;
+import java.util.stream.Stream;
 
-public class CounterWord<T> {
-    private final T[] array;
-    private final HashMap<T, Integer> hm = new HashMap<>();
+public class CounterWord {
+    private final String[] array;
+    private final HashMap<String, Integer> hm = new HashMap<>();
 
-    public CounterWord(T[] array) {
+    public CounterWord(String[] array) {
         this.array = array;
         toHashMap();
     }
 
-    public int countOccurrences(T key) {
+    public int countOccurrences(String key) {
         return hm.get(key);
     }
 
     public void printUniqueToConsole() {
         for (var o : hm.entrySet()) {
             if (o.getValue() == 1) {
-                System.out.println(o.getKey());
+                System.out.print(o.getKey() + " ");
             }
         }
     }
 
     private void toHashMap() {
-        for (T key : array) {
+        for (String key : array) {
             if (hm.containsKey(key)) {
-                int acc = 1;
-                acc += hm.get(key);
-                hm.put(key, acc);
+                hm.put(key, hm.get(key) + 1);
             } else {
                 hm.put(key, 1);
             }

@@ -1,6 +1,7 @@
 package ru.aston.lessons;
 
 import java.util.HashMap;
+import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,19 +12,11 @@ public class Main {
                 ".Net", "Python", "Javac", "JavaScript", "Авианосец"
         };
 
-        Integer[] nums = {4, 5, 4, 3, 1};
-
-        CounterWord<String> cw = new CounterWord<>(array);
-
-
-        CounterWord<Integer> cwint = new CounterWord<>(nums);
+        CounterWord cw = new CounterWord(array);
 
         cw.printUniqueToConsole();
+        System.out.println();
 
         System.out.println(cw.countOccurrences("Корабль"));
-
-        cwint.printUniqueToConsole();
-
-
     }
 }
