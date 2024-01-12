@@ -16,11 +16,10 @@ public class Phonebook {
             al.add(phoneNumber);
             hs.put(lastName, al);
         }
-
-
     }
 
     public void get(String lastName) {
+        System.out.println(lastName);
         Stream<ArrayList<Long>> longStream = Stream.of(hs.get(lastName));
         longStream.flatMap(Collection::stream).forEach(System.out::println);
     }
