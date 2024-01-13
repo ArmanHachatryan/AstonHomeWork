@@ -1,6 +1,5 @@
 package ru.aston.lessons;
 
-import ru.aston.lessons.animalLib.Abstracts.Animal;
 import ru.aston.lessons.animalLib.AnimalSubClasses.Cat;
 import ru.aston.lessons.animalLib.AnimalSubClasses.Dog;
 import ru.aston.lessons.animalLib.Bowl;
@@ -40,9 +39,9 @@ public class Main {
         System.out.println();
 
         Shape[] shapes = {
-                new Rectangle(5, 4, Color.Red, Color.Green),
-                new Triangle(6, 9, 4, Color.White, Color.Yellow),
-                new Circle(10, Color.Black, Color.Purple)
+                new Rectangle(5, 4, COLOR.Red, COLOR.Green),
+                new Triangle(6, 9, 4, COLOR.White, COLOR.Yellow),
+                new Circle(10, COLOR.Black, COLOR.Purple)
         };
 
         for (var shape : shapes) {

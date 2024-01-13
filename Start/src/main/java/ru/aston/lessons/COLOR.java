@@ -1,6 +1,6 @@
 package ru.aston.lessons;
 
-public enum Color {
+public enum COLOR {
     Black,
     White,
     Green,

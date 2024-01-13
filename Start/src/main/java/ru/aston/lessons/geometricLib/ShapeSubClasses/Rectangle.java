@@ -1,6 +1,6 @@
 package ru.aston.lessons.geometricLib.ShapeSubClasses;
 
-import ru.aston.lessons.Color;
+import ru.aston.lessons.COLOR;
 import ru.aston.lessons.geometricLib.Abstracts.Shape;
 import ru.aston.lessons.geometricLib.Interfaces.ShapeArea;
 import ru.aston.lessons.geometricLib.Interfaces.ShapePerimeter;
@@ -9,8 +9,8 @@ public class Rectangle extends Shape implements ShapePerimeter, ShapeArea {
     private double sideA;
     private double sideB;
 
-    public Rectangle(double sideA, double sideB, Color backgroundColor, Color borderColor) {
-        super(backgroundColor, borderColor);
+    public Rectangle(double sideA, double sideB, COLOR backgroundCOLOR, COLOR borderCOLOR) {
+        super(backgroundCOLOR, borderCOLOR);
         this.sideA = sideA;
         this.sideB = sideB;
     }
@@ -36,7 +36,7 @@ public class Rectangle extends Shape implements ShapePerimeter, ShapeArea {
                         ", P = %.3f" +
                         ", S = %.3f" +
                         "}\n"
-                , sideA, sideB, backgroundColor, borderColor, calculatePerimeter(), calculateArea()
+                , sideA, sideB, backgroundCOLOR, borderCOLOR, calculatePerimeter(), calculateArea()
         );
     }
 }

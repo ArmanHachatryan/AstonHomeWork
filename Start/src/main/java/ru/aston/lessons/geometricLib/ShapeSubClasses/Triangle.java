@@ -1,6 +1,6 @@
 package ru.aston.lessons.geometricLib.ShapeSubClasses;
 
-import ru.aston.lessons.Color;
+import ru.aston.lessons.COLOR;
 import ru.aston.lessons.geometricLib.Abstracts.Shape;
 import ru.aston.lessons.geometricLib.Interfaces.ShapeArea;
 import ru.aston.lessons.geometricLib.Interfaces.ShapePerimeter;
@@ -11,8 +11,8 @@ public class Triangle extends Shape implements ShapePerimeter, ShapeArea {
     private double sideB;
     private double sideC;
 
-    public Triangle(double sideA, double sideB, double sideC, Color backgroundColor, Color borderColor) {
-        super(backgroundColor, borderColor);
+    public Triangle(double sideA, double sideB, double sideC, COLOR backgroundCOLOR, COLOR borderCOLOR) {
+        super(backgroundCOLOR, borderCOLOR);
         this.sideA = sideA;
         this.sideB = sideB;
         this.sideC = sideC;
@@ -41,7 +41,7 @@ public class Triangle extends Shape implements ShapePerimeter, ShapeArea {
                         ", P = %.3f" +
                         ", S = %.3f" +
                         "}\n"
-                , sideA, sideB, sideC, backgroundColor, borderColor, calculatePerimeter(), calculateArea()
+                , sideA, sideB, sideC, backgroundCOLOR, borderCOLOR, calculatePerimeter(), calculateArea()
         );
     }
 }

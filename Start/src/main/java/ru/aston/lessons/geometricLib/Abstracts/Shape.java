@@ -1,14 +1,14 @@
 package ru.aston.lessons.geometricLib.Abstracts;
 
-import ru.aston.lessons.Color;
+import ru.aston.lessons.COLOR;
 
 public abstract class Shape {
-    public final Color backgroundColor;
-    public final Color borderColor;
+    public final COLOR backgroundCOLOR;
+    public final COLOR borderCOLOR;
 
-    public Shape(Color backgroundColor, Color borderColor) {
-        this.backgroundColor = backgroundColor;
-        this.borderColor = borderColor;
+    public Shape(COLOR backgroundCOLOR, COLOR borderCOLOR) {
+        this.backgroundCOLOR = backgroundCOLOR;
+        this.borderCOLOR = borderCOLOR;
     }
 
     public abstract void getInfo();

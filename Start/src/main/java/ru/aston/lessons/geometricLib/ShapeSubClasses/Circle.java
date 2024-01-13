@@ -1,6 +1,6 @@
 package ru.aston.lessons.geometricLib.ShapeSubClasses;
 
-import ru.aston.lessons.Color;
+import ru.aston.lessons.COLOR;
 import ru.aston.lessons.geometricLib.Abstracts.Shape;
 import ru.aston.lessons.geometricLib.Interfaces.ShapeArea;
 import ru.aston.lessons.geometricLib.Interfaces.ShapePerimeter;
@@ -8,8 +8,8 @@ import ru.aston.lessons.geometricLib.Interfaces.ShapePerimeter;
 public class Circle extends Shape implements ShapePerimeter, ShapeArea {
     private final double radius;
 
-    public Circle(double radius, Color backgroundColor, Color borderColor) {
-        super(backgroundColor, borderColor);
+    public Circle(double radius, COLOR backgroundCOLOR, COLOR borderCOLOR) {
+        super(backgroundCOLOR, borderCOLOR);
         this.radius = radius;
     }
 
@@ -33,7 +33,7 @@ public class Circle extends Shape implements ShapePerimeter, ShapeArea {
                         ", P = %.3f" +
                         ", S = %.3f" +
                         "}\n"
-                , radius, backgroundColor, borderColor, calculatePerimeter(), calculateArea()
+                , radius, backgroundCOLOR, borderCOLOR, calculatePerimeter(), calculateArea()
         );
     }
 }
