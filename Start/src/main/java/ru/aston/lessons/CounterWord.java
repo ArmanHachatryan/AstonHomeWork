@@ -22,7 +22,6 @@ public class CounterWord {
         ms.flatMap(p -> Stream.of(p.entrySet()))
                 .flatMap(Collection::stream)
                 .forEach(p -> System.out.println(p.getKey() + "=" + p.getValue()));
-        ms.close();
     }
 
     public void printUniqueToConsole() {
@@ -31,7 +30,6 @@ public class CounterWord {
                 .flatMap(Collection::stream)
                 .filter(p -> p.getValue() == 1)
                 .forEach(p -> System.out.println(p.getKey()));
-        ms.close();
     }
 
     private void toHashMap() {
