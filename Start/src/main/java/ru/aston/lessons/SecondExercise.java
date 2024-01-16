@@ -12,13 +12,10 @@ public class SecondExercise {
     }
 
     public static String getFirst(ArrayList<String> arrayList) {
-        Optional<String> first = arrayList.stream().findFirst();
-        return first.orElse("0");
+        return arrayList.stream().findFirst().orElse("0");
     }
 
     public static String getLast(ArrayList<String> arrayList) {
-        long count = arrayList.size();
-        Optional<String> last = arrayList.stream().skip(count - 1).findFirst();
-        return last.orElse("0");
+        return arrayList.stream().skip(arrayList.size() - 1).findFirst().orElse("0");
     }
 }
