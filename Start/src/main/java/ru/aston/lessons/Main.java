@@ -23,6 +23,6 @@ public class Main {
         System.out.println(fourthExercise.avgAgeMen());
         fourthExercise.militaryAge();
 
-        FifthExercise.startProgram();
+        FifthExercise.readAndPrintCorrectLogin();
     }
 }
