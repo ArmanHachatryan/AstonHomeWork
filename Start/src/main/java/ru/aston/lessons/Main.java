@@ -1,6 +1,7 @@
 package ru.aston.lessons;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class Main {
@@ -13,5 +14,15 @@ public class Main {
         System.out.println(SecondExercise.countRepetitionOfHigh(list));
         System.out.println(SecondExercise.getFirst(list));
         System.out.println(SecondExercise.getLast(list));
+
+        ArrayList<String> list2 = new ArrayList<>();
+        Collections.addAll(list2, "f10", "f15", "f2", "f4", "f4");
+        System.out.println(Arrays.toString(ThirdExercise.sortAndToArray(list2)));
+
+        FourthExercise fourthExercise = new FourthExercise();
+        System.out.println(fourthExercise.avgAgeMen());
+        fourthExercise.militaryAge();
+
+        FifthExercise.startProgram();
     }
 }
