@@ -8,11 +8,12 @@ public class Main {
         String[][] strArray = {
                 {"1", "2", "3", "4"},
                 {"5", "6", "7", "8"},
-                {"9", "10", "11", "12"},
+                {"9", "10", "11", "fg"},
+                {"9", "10", "11", "12"}
         };
 
         try {
-            System.out.println(ArraySize4x4.getSum(strArray));
+            System.out.println(ArraySize4x4.calculateSumFromArray(strArray));
         } catch (MyArraySizeException ex) {
             System.out.println(ex.getMessage() + " your array was " + ex.getArraySize());
         } catch (MyArrayDataException ex) {
