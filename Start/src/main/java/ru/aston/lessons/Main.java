@@ -17,7 +17,7 @@ public class Main {
         CounterWord cw = new CounterWord(array);
         cw.printUniqueToConsole();
 
-        System.out.println(cw.countOccurrences("Корабль"));
+        System.out.println();
         cw.countOccurrences();
 
         Phonebook ph = new Phonebook();
@@ -27,9 +27,9 @@ public class Main {
         ph.add("Петров", 7_987_574_12_13L);
         ph.add("Петрова", 7_967_524_12_19L);
 
+        System.out.println();
         ph.get("Хачатрян");
         ph.get("Петров");
         ph.get("Петрова");
-
     }
 }

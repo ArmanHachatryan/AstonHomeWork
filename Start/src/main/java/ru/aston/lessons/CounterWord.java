@@ -13,10 +13,6 @@ public class CounterWord {
         toHashMap();
     }
 
-    public int countOccurrences(String word) {
-        return hashMap.get(word);
-    }
-
     public void countOccurrences() {
         Stream<HashMap<String, Integer>> streamOfHashMap = Stream.of(hashMap);
         streamOfHashMap.flatMap(p -> Stream.of(p.entrySet()))
