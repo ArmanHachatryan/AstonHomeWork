@@ -1,13 +1,9 @@
 package ru.aston.lessons;
 
 public abstract class Fruit {
-    protected double weight;
-
-    public double getFruitWeight() {
-        return weight;
-    }
+    public final double WEIGHT;
 
     public Fruit(double weight) {
-        this.weight = weight;
+        this.WEIGHT = weight;
     }
 }
