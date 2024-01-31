@@ -17,7 +17,7 @@ public class Box<T extends Fruit> {
     }
 
     public double getBoxWeight() {
-        return fruits.stream().mapToDouble(p -> p.WEIGHT).sum();
+        return fruits.stream().mapToDouble(Fruit::getWeight).sum();
     }
 
     public boolean compare(Box<?> fruitBox) {
