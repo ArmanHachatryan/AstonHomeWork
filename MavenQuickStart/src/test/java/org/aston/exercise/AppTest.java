@@ -95,7 +95,6 @@ public class AppTest {
 
         buttonNext.click();
 
-
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
         WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//iframe[@class='bepaid-iframe']")));
