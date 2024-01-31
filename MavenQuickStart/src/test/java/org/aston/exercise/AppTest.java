@@ -1,39 +1,40 @@
 package org.aston.exercise;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.checkerframework.checker.units.qual.A;
-import org.checkerframework.checker.units.qual.K;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.openqa.selenium.support.ui.ExpectedConditions.alertIsPresent;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-public class AppTest
-{
-    static WebDriver driver;
+public class AppTest {
+    WebDriver driver;
     WebDriverWait wait;
 
     @BeforeAll
     static void setUpAll() {
         WebDriverManager.chromedriver().setup();
+    }
+
+    @BeforeEach
+    void setUp() {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.get("https://www.mts.by/");
         driver.findElement(By.xpath("//*[@id=\"cookie-agree\"]")).click();
     }
 
-    @AfterAll
-    static void tearDownAll() {
+    @AfterEach
+    void tearDownAll() {
         driver.quit();
     }
 
@@ -95,15 +96,12 @@ public class AppTest
         buttonNext.click();
 
 
-        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
         WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//iframe[@class='bepaid-iframe']")));
         driver.switchTo().frame(iframe);
 
-        WebElement paymentContainer = driver.findElement(By.xpath("//input[@id='cc-number']"));
-        assertTrue(paymentContainer.isDisplayed());
-        paymentContainer.sendKeys(Keys.ESCAPE);
-
-        driver.switchTo().parentFrame();
+        WebElement paymCont = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@id='cc-number']")));
+        assertTrue(paymCont.isDisplayed());
     }
 }
