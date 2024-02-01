@@ -60,18 +60,16 @@ public class AppTest {
                 .getAttribute("innerText")
                 .split(" ")[0]);
 
-        assertEquals(SUM_PAY_DOUBLE, actualAmountOnP);
-
         Double actualSumOnButton = Double.parseDouble(driver.findElement(By.xpath("//div[@class='card-page__card']/button"))
                 .getAttribute("innerText")
                 .split(" ")[1]);
-
-        assertEquals(SUM_PAY_DOUBLE, actualSumOnButton);
 
         String actualPhoneNumber = driver.findElement(By.xpath("//p[@class='header__payment-info']"))
                 .getAttribute("innerText")
                 .split("375")[1];
 
+        assertEquals(SUM_PAY_DOUBLE, actualAmountOnP);
+        assertEquals(SUM_PAY_DOUBLE, actualSumOnButton);
         assertEquals(PHONE_NUMBER, actualPhoneNumber);
     }
 }
