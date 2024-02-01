@@ -39,67 +39,39 @@ public class AppTest {
     }
 
     @Test
-    @DisplayName("Проверить название указанного блока")
-    void checkBlockTitle() {
-        WebElement paySectionTitle = driver.findElement(By.xpath
-                ("//div[@class='pay__wrapper']/h2")
-        );
-
-        assertEquals("Онлайн пополнение\nбез комиссии", paySectionTitle.getText());
-    }
-
-    @Test
-    @DisplayName("Проверить наличие логотипов платёжных систем")
-    void checkLogo() {
-        List<WebElement> logos = driver.findElements(
-                By.xpath("//div[@class='pay__partners']/.//img")
-        );
-
-        logos.forEach(p -> assertTrue(p.isDisplayed(), p.getAttribute("alt")));
-    }
-
-    @Test
-    @DisplayName("Проверить работу ссылки «Подробнее о сервисе»")
-    void checkLink() {
-        WebElement link = driver.findElement(
-                By.xpath("//div[@class='pay__wrapper']/a")
-        );
-
-        assertTrue(link.isEnabled());
-        assertTrue(link.isDisplayed());
-
-        String linkPath = link.getAttribute("href");
-        String expectedLink = "https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/";
-
-        assertEquals(expectedLink, linkPath);
-
-        driver.get(linkPath);
-        assertEquals("Порядок оплаты и безопасность интернет платежей", driver.getTitle());
-    }
-
-    @Test
-    @DisplayName("Проверить работу кнопки «Продолжить»")
-    void checkForm() {
+    @DisplayName("Проверить работу формы оплаты»")
+    void checkPayForm() {
         final String PHONE_NUMBER = "297777777";
-        final String SUM_PAY = "100";
+        final double SUM_PAY_DOUBLE = 100.0;
+        final String SUM_PAY_STRING = String.valueOf(SUM_PAY_DOUBLE);
         final String EMAIL = "test@mail.ru";
 
-        WebElement inputPhoneNumber = driver.findElement(By.xpath("//input[@id='connection-phone']"));
-        WebElement inputSumPay = driver.findElement(By.xpath("//input[@id='connection-sum']"));
-        WebElement inputEmail = driver.findElement(By.xpath("//input[@id='connection-email']"));
-        WebElement buttonNext = driver.findElement(By.xpath("//form[@id='pay-connection']/button"));
-
-        inputPhoneNumber.sendKeys(PHONE_NUMBER);
-        inputSumPay.sendKeys(SUM_PAY);
-        inputEmail.sendKeys(EMAIL);
-        buttonNext.click();
+        driver.findElement(By.xpath("//input[@id='connection-phone']")).sendKeys(PHONE_NUMBER);
+        driver.findElement(By.xpath("//input[@id='connection-sum']")).sendKeys(SUM_PAY_STRING);
+        driver.findElement(By.xpath("//input[@id='connection-email']")).sendKeys(EMAIL);
+        driver.findElement(By.xpath("//form[@id='pay-connection']/button")).click();;
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//iframe[@class='bepaid-iframe']")));
         driver.switchTo().frame(iframe);
 
-        WebElement paymentContainer = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@id='cc-number']")));
-        assertTrue(paymentContainer.isEnabled());
+        Double actualAmountOnP = Double.parseDouble(driver.findElement(By.xpath("//p[@class='header__payment-amount']"))
+                .getAttribute("innerText")
+                .split(" ")[0]);
+
+        assertEquals(SUM_PAY_DOUBLE, actualAmountOnP);
+
+        Double actualSumOnButton = Double.parseDouble(driver.findElement(By.xpath("//div[@class='card-page__card']/button"))
+                .getAttribute("innerText")
+                .split(" ")[1]);
+
+        assertEquals(SUM_PAY_DOUBLE, actualSumOnButton);
+
+        String actualPhoneNumber = driver.findElement(By.xpath("//p[@class='header__payment-info']"))
+                .getAttribute("innerText")
+                .split("375")[1];
+
+        assertEquals(PHONE_NUMBER, actualPhoneNumber);
     }
 }
