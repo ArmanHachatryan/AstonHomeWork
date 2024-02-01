@@ -23,8 +23,6 @@ public class AppTest {
     @BeforeAll
     static void setUpAll() {
         WebDriverManager.chromedriver().setup();
-
-
     }
 
     @BeforeEach
@@ -32,7 +30,7 @@ public class AppTest {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.get("https://www.mts.by/");
-        driver.findElement(By.xpath("//*[@id=\"cookie-agree\"]")).click();
+        driver.findElement(By.xpath("//button[@id='cookie-agree']")).click();
     }
 
     @AfterEach
@@ -44,7 +42,7 @@ public class AppTest {
     @DisplayName("Проверить название указанного блока")
     void checkBlockTitle() {
         WebElement paySectionTitle = driver.findElement(By.xpath
-                ("//*[@id=\"pay-section\"]/div/div/div[2]/section/div/h2")
+                ("//div[@class='pay__wrapper']/h2")
         );
 
         assertEquals("Онлайн пополнение\nбез комиссии", paySectionTitle.getText());
@@ -54,7 +52,7 @@ public class AppTest {
     @DisplayName("Проверить наличие логотипов платёжных систем")
     void checkLogo() {
         List<WebElement> logos = driver.findElements(
-                By.xpath("//*[@id=\"pay-section\"]/div/div/div[2]/section/div/div[2]/ul/li/img")
+                By.xpath("//div[@class='pay__partners']/.//img")
         );
 
         logos.forEach(p -> assertTrue(p.isDisplayed(), p.getAttribute("alt")));
@@ -64,7 +62,7 @@ public class AppTest {
     @DisplayName("Проверить работу ссылки «Подробнее о сервисе»")
     void checkLink() {
         WebElement link = driver.findElement(
-                By.xpath("//*[@id=\"pay-section\"]/div/div/div[2]/section/div/a")
+                By.xpath("//div[@class='pay__wrapper']/a")
         );
 
         assertTrue(link.isEnabled());
@@ -86,15 +84,14 @@ public class AppTest {
         final String SUM_PAY = "100";
         final String EMAIL = "test@mail.ru";
 
-        WebElement inputPhoneNumber = driver.findElement(By.xpath("//*[@id=\"connection-phone\"]"));
-        WebElement inputSumPay = driver.findElement(By.xpath("//*[@id=\"connection-sum\"]"));
-        WebElement inputEmail = driver.findElement(By.xpath("//*[@id=\"connection-email\"]"));
-        WebElement buttonNext = driver.findElement(By.xpath("//*[@id=\"pay-connection\"]/button"));
+        WebElement inputPhoneNumber = driver.findElement(By.xpath("//input[@id='connection-phone']"));
+        WebElement inputSumPay = driver.findElement(By.xpath("//input[@id='connection-sum']"));
+        WebElement inputEmail = driver.findElement(By.xpath("//input[@id='connection-email']"));
+        WebElement buttonNext = driver.findElement(By.xpath("//form[@id='pay-connection']/button"));
 
         inputPhoneNumber.sendKeys(PHONE_NUMBER);
         inputSumPay.sendKeys(SUM_PAY);
         inputEmail.sendKeys(EMAIL);
-
         buttonNext.click();
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
