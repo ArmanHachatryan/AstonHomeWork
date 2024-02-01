@@ -61,19 +61,18 @@ public class AppTest {
     @Test
     @DisplayName("Проверить работу ссылки «Подробнее о сервисе»")
     void checkLink() {
+        String expectedLink = "https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/";
+
         WebElement link = driver.findElement(
                 By.xpath("//div[@class='pay__wrapper']/a")
         );
 
+        String linkPath = link.getAttribute("href");
+        driver.get(linkPath);
+
         assertTrue(link.isEnabled());
         assertTrue(link.isDisplayed());
-
-        String linkPath = link.getAttribute("href");
-        String expectedLink = "https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/";
-
         assertEquals(expectedLink, linkPath);
-
-        driver.get(linkPath);
         assertEquals("Порядок оплаты и безопасность интернет платежей", driver.getTitle());
     }
 
