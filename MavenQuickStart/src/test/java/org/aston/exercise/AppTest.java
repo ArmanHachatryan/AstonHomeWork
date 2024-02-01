@@ -51,25 +51,43 @@ public class AppTest {
         driver.findElement(By.xpath("//input[@id='connection-email']")).sendKeys(EMAIL);
         driver.findElement(By.xpath("//form[@id='pay-connection']/button")).click();;
 
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//iframe[@class='bepaid-iframe']")));
+        WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.xpath("//iframe[@class='bepaid-iframe']")));
         driver.switchTo().frame(iframe);
 
-        Double actualAmountOnP = Double.parseDouble(driver.findElement(By.xpath("//p[@class='header__payment-amount']"))
+        Double actualAmountOnP = Double.parseDouble(driver
+                .findElement(By.xpath("//p[@class='header__payment-amount']"))
                 .getAttribute("innerText")
                 .split(" ")[0]);
 
-        Double actualSumOnButton = Double.parseDouble(driver.findElement(By.xpath("//div[@class='card-page__card']/button"))
+        Double actualSumOnButton = Double.parseDouble(driver
+                .findElement(By.xpath("//div[@class='card-page__card']/button"))
                 .getAttribute("innerText")
                 .split(" ")[1]);
 
-        String actualPhoneNumber = driver.findElement(By.xpath("//p[@class='header__payment-info']"))
+        String actualPhoneNumber = driver
+                .findElement(By.xpath("//p[@class='header__payment-info']"))
                 .getAttribute("innerText")
                 .split("375")[1];
 
-        assertEquals(SUM_PAY_DOUBLE, actualAmountOnP);
-        assertEquals(SUM_PAY_DOUBLE, actualSumOnButton);
-        assertEquals(PHONE_NUMBER, actualPhoneNumber);
+        String actualTextOfC_C_Number = driver.findElement(By.xpath("//input[@id='cc-number']/.."))
+                        .getAttribute("innerText");
+
+        String actualTextOfC_C_Exp = driver.findElement(By.xpath("//input[@autocomplete='cc-exp']/.."))
+                .getAttribute("innerText");
+
+        List<WebElement> actualLogos = driver
+                .findElements(By.xpath("//input[@id='cc-number']/../following-sibling::div/.//img"));
+
+        assertEquals(SUM_PAY_DOUBLE, actualAmountOnP, "Сумма в <p> отличается");
+        assertEquals(SUM_PAY_DOUBLE, actualSumOnButton, "Сумма на <button отличается");
+        assertEquals(PHONE_NUMBER, actualPhoneNumber, "Номер отличается");
+        assertEquals("Номер карты", actualTextOfC_C_Number, "Текст в поле отличается от Номер карты");
+        assertEquals("Срок действия", actualTextOfC_C_Exp, "Текст в поле отличается от Срок действия");
+
+        actualLogos.forEach(p -> assertTrue(p.isEnabled(), "Логотипа нет"));
+
     }
 }
