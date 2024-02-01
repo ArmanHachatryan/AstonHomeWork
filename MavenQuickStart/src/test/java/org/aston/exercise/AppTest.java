@@ -72,20 +72,34 @@ public class AppTest {
                 .getAttribute("innerText")
                 .split("375")[1];
 
-        String actualTextOfC_C_Number = driver.findElement(By.xpath("//input[@id='cc-number']/.."))
-                        .getAttribute("innerText");
+        String actualTextOfC_C_Number = driver
+                .findElement(By.xpath("//input[@id='cc-number']/.."))
+                .getAttribute("innerText");
 
-        String actualTextOfC_C_Exp = driver.findElement(By.xpath("//input[@autocomplete='cc-exp']/.."))
+        String actualTextOfC_C_Exp = driver
+                .findElement(By.xpath("//input[@autocomplete='cc-exp']/.."))
+                .getAttribute("innerText");
+
+        String actualTextOfC_C_V = driver
+                .findElement(By.xpath("//input[@name='verification_value']/.."))
+                .getAttribute("innerText");
+
+        String actualTextOnPersonName = driver
+                .findElement(By.xpath("//input[@autocomplete='cc-name']/.."))
                 .getAttribute("innerText");
 
         List<WebElement> actualLogos = driver
                 .findElements(By.xpath("//input[@id='cc-number']/../following-sibling::div/.//img"));
 
+
         assertEquals(SUM_PAY_DOUBLE, actualAmountOnP, "Сумма в <p> отличается");
         assertEquals(SUM_PAY_DOUBLE, actualSumOnButton, "Сумма на <button отличается");
         assertEquals(PHONE_NUMBER, actualPhoneNumber, "Номер отличается");
-        assertEquals("Номер карты", actualTextOfC_C_Number, "Текст в поле отличается от Номер карты");
-        assertEquals("Срок действия", actualTextOfC_C_Exp, "Текст в поле отличается от Срок действия");
+
+        assertEquals("Номер карты", actualTextOfC_C_Number, "Отличие Номер карты");
+        assertEquals("Срок действия", actualTextOfC_C_Exp, "Отличие Срок действия");
+        assertEquals("CVC", actualTextOfC_C_V, "Отличие CVC");
+        assertEquals("Имя держателя (как на карте)", actualTextOnPersonName, "Отличие имя держателя");
 
         actualLogos.forEach(p -> assertTrue(p.isEnabled(), "Логотипа нет"));
 
