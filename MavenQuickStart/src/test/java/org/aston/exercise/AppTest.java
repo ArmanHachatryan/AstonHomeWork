@@ -67,11 +67,11 @@ public class AppTest {
                 By.xpath("//div[@class='pay__wrapper']/a")
         );
 
-        String linkPath = link.getAttribute("href");
-        driver.get(linkPath);
-
         assertTrue(link.isEnabled());
         assertTrue(link.isDisplayed());
+
+        String linkPath = link.getAttribute("href");
+        driver.get(linkPath);
         assertEquals(expectedLink, linkPath);
         assertEquals("Порядок оплаты и безопасность интернет платежей", driver.getTitle());
     }
