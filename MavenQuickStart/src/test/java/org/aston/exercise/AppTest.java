@@ -23,6 +23,8 @@ public class AppTest {
     @BeforeAll
     static void setUpAll() {
         WebDriverManager.chromedriver().setup();
+
+
     }
 
     @BeforeEach
@@ -95,12 +97,12 @@ public class AppTest {
 
         buttonNext.click();
 
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//iframe[@class='bepaid-iframe']")));
         driver.switchTo().frame(iframe);
 
-        WebElement paymCont = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@id='cc-number']")));
-        assertTrue(paymCont.isDisplayed());
+        WebElement paymentContainer = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@id='cc-number']")));
+        assertTrue(paymentContainer.isEnabled());
     }
 }
