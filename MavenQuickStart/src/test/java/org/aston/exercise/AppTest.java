@@ -84,22 +84,22 @@ public class AppTest {
         final String SUM_PAY = "100";
         final String EMAIL = "test@mail.ru";
 
-        WebElement inputPhoneNumber = driver.findElement(By.xpath("//input[@id='connection-phone']"));
-        WebElement inputSumPay = driver.findElement(By.xpath("//input[@id='connection-sum']"));
-        WebElement inputEmail = driver.findElement(By.xpath("//input[@id='connection-email']"));
-        WebElement buttonNext = driver.findElement(By.xpath("//form[@id='pay-connection']/button"));
-
-        inputPhoneNumber.sendKeys(PHONE_NUMBER);
-        inputSumPay.sendKeys(SUM_PAY);
-        inputEmail.sendKeys(EMAIL);
-        buttonNext.click();
+        driver.findElement(By.xpath("//input[@id='connection-phone']")).sendKeys(PHONE_NUMBER);
+        driver.findElement(By.xpath("//input[@id='connection-sum']")).sendKeys(SUM_PAY);
+        driver.findElement(By.xpath("//input[@id='connection-email']")).sendKeys(EMAIL);
+        driver.findElement(By.xpath("//form[@id='pay-connection']/button")).click();;
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
-        WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//iframe[@class='bepaid-iframe']")));
+        WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.xpath("//iframe[@class='bepaid-iframe']")
+        ));
         driver.switchTo().frame(iframe);
 
-        WebElement paymentContainer = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@id='cc-number']")));
+        WebElement paymentContainer = wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.xpath("//div[@class='app-wrapper__content']")
+        ));
+
         assertTrue(paymentContainer.isEnabled());
     }
 }
