@@ -12,8 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class AppTest {
@@ -57,51 +56,51 @@ public class AppTest {
                 By.xpath("//iframe[@class='bepaid-iframe']")));
         driver.switchTo().frame(iframe);
 
-        Double actualAmountOnP = Double.parseDouble(driver
-                .findElement(By.xpath("//p[@class='header__payment-amount']"))
+        Double actualAmountOnP = getDoubleFromWebElement(
+                "//p[@class='header__payment-amount']", " ", 0);
+
+        Double actualSumOnButton = getDoubleFromWebElement(
+                "//div[@class='card-page__card']/button", " ", 1);
+
+        String actualPhoneNumber = getTextFromWebElement(
+                "//p[@class='header__payment-info']", "375", 1);
+
+        String actualTextOfC_C_Number = getTextFromWebElement("//input[@id='cc-number']/..");
+        String actualTextOfC_C_Exp = getTextFromWebElement("//input[@autocomplete='cc-exp']/..");
+        String actualTextOfC_C_V = getTextFromWebElement("//input[@name='verification_value']/..");
+        String actualTextOnPersonName = getTextFromWebElement("//input[@autocomplete='cc-name']/..");
+
+        List<WebElement> actualLogos = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                By.xpath("//input[@id='cc-number']/../following-sibling::div/.//img")
+        ));
+
+        assertAll(
+                () -> assertEquals(SUM_PAY_DOUBLE, actualAmountOnP, "Сумма в <p> отличается"),
+                () -> assertEquals(SUM_PAY_DOUBLE, actualSumOnButton, "Сумма на <button отличается"),
+                () -> assertEquals(PHONE_NUMBER, actualPhoneNumber, "Номер отличается"),
+                () -> assertEquals("Номер карты", actualTextOfC_C_Number, "Отличие Номер карты"),
+                () -> assertEquals("Срок действия", actualTextOfC_C_Exp, "Отличие Срок действия"),
+                () -> assertEquals("CVC", actualTextOfC_C_V, "Отличие CVC"),
+                () -> assertEquals("Имя держателя (как на карте)", actualTextOnPersonName,
+                        "Отличие Имя держателя"),
+                () -> actualLogos.forEach(p -> assertTrue(p.isDisplayed(), "Логотипа нет"))
+        );
+    }
+
+    public String getTextFromWebElement(String xpath) {
+        return driver.findElement(By.xpath(xpath))
+                .getAttribute("innerText");
+    }
+
+    public String getTextFromWebElement(String xpath, String regex, int index) {
+        return driver.findElement(By.xpath(xpath))
                 .getAttribute("innerText")
-                .split(" ")[0]);
+                .split(regex)[index];
+    }
 
-        Double actualSumOnButton = Double.parseDouble(driver
-                .findElement(By.xpath("//div[@class='card-page__card']/button"))
+    public Double getDoubleFromWebElement(String xpath, String regex, int index) {
+        return Double.parseDouble(driver.findElement(By.xpath(xpath))
                 .getAttribute("innerText")
-                .split(" ")[1]);
-
-        String actualPhoneNumber = driver
-                .findElement(By.xpath("//p[@class='header__payment-info']"))
-                .getAttribute("innerText")
-                .split("375")[1];
-
-        String actualTextOfC_C_Number = driver
-                .findElement(By.xpath("//input[@id='cc-number']/.."))
-                .getAttribute("innerText");
-
-        String actualTextOfC_C_Exp = driver
-                .findElement(By.xpath("//input[@autocomplete='cc-exp']/.."))
-                .getAttribute("innerText");
-
-        String actualTextOfC_C_V = driver
-                .findElement(By.xpath("//input[@name='verification_value']/.."))
-                .getAttribute("innerText");
-
-        String actualTextOnPersonName = driver
-                .findElement(By.xpath("//input[@autocomplete='cc-name']/.."))
-                .getAttribute("innerText");
-
-        List<WebElement> actualLogos = driver
-                .findElements(By.xpath("//input[@id='cc-number']/../following-sibling::div/.//img"));
-
-
-        assertEquals(SUM_PAY_DOUBLE, actualAmountOnP, "Сумма в <p> отличается");
-        assertEquals(SUM_PAY_DOUBLE, actualSumOnButton, "Сумма на <button отличается");
-        assertEquals(PHONE_NUMBER, actualPhoneNumber, "Номер отличается");
-
-        assertEquals("Номер карты", actualTextOfC_C_Number, "Отличие Номер карты");
-        assertEquals("Срок действия", actualTextOfC_C_Exp, "Отличие Срок действия");
-        assertEquals("CVC", actualTextOfC_C_V, "Отличие CVC");
-        assertEquals("Имя держателя (как на карте)", actualTextOnPersonName, "Отличие имя держателя");
-
-        actualLogos.forEach(p -> assertTrue(p.isEnabled(), "Логотипа нет"));
-
+                .split(regex)[index]);
     }
 }
