@@ -72,6 +72,7 @@ public class AppTest {
 
         String linkPath = link.getAttribute("href");
         driver.get(linkPath);
+        
         assertEquals(expectedLink, linkPath);
         assertEquals("Порядок оплаты и безопасность интернет платежей", driver.getTitle());
     }
@@ -95,10 +96,10 @@ public class AppTest {
         ));
         driver.switchTo().frame(iframe);
 
-        WebElement paymentContainer = wait.until(ExpectedConditions.presenceOfElementLocated(
+        WebElement paymentContainer = wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//div[@class='app-wrapper__content']")
         ));
 
-        assertTrue(paymentContainer.isEnabled());
+        assertTrue(paymentContainer.isDisplayed());
     }
 }
