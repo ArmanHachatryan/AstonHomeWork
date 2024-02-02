@@ -72,7 +72,7 @@ public class AppTest {
 
         String linkPath = link.getAttribute("href");
         driver.get(linkPath);
-        
+
         assertEquals(expectedLink, linkPath);
         assertEquals("Порядок оплаты и безопасность интернет платежей", driver.getTitle());
     }
