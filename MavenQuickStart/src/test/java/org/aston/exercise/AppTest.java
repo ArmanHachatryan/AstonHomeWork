@@ -47,7 +47,7 @@ public class AppTest {
     @DisplayName("Проверить надписи в незаполненных полях")
     void checkInputText() {
         final String sumPlaceholder = "Сумма";
-        final String emailPlaceholeder = "E-mail для отправки чека";
+        final String emailPlaceholder = "E-mail для отправки чека";
 
         String phoneNumberText = getTextFromWebElement("//input[@id='connection-phone']",
                 "placeholder");
@@ -60,7 +60,7 @@ public class AppTest {
                 () -> assertEquals("Номер телефона", phoneNumberText,
                         "Номер телефона"),
                 () -> assertEquals(sumPlaceholder, sumText, sumPlaceholder),
-                () -> assertEquals(emailPlaceholeder, emailText, emailPlaceholeder)
+                () -> assertEquals(emailPlaceholder, emailText, emailPlaceholder)
         );
 
         String internetPhoneText = getTextFromWebElement("//input[@id='internet-phone']",
@@ -73,7 +73,7 @@ public class AppTest {
         assertAll(
                 () -> assertEquals("Номер абонента", internetPhoneText, "Номер абонента"),
                 () -> assertEquals(sumPlaceholder, internetSum, sumPlaceholder + 2),
-                () -> assertEquals(emailPlaceholeder, internetEmail, emailPlaceholeder + 2)
+                () -> assertEquals(emailPlaceholder, internetEmail, emailPlaceholder + 2)
         );
 
         String scoreInstalmentText = getTextFromWebElement("//input[@id='score-instalment']",
@@ -86,7 +86,7 @@ public class AppTest {
         assertAll(
                 () -> assertEquals("Номер счета на 44", scoreInstalmentText, "Номер счета на 44"),
                 () -> assertEquals(sumPlaceholder, scoreInstalmentSum, sumPlaceholder + 3),
-                () -> assertEquals(emailPlaceholeder, scoreInstalmentEmail, emailPlaceholeder + 3)
+                () -> assertEquals(emailPlaceholder, scoreInstalmentEmail, emailPlaceholder + 3)
         );
 
         String arrearsText = getTextFromWebElement("//input[@id='score-arrears']",
@@ -99,12 +99,11 @@ public class AppTest {
         assertAll(
                 () -> assertEquals("Номер счета на 2073", arrearsText, "Номер счета на 2073"),
                 () -> assertEquals(sumPlaceholder, arrearsSum, sumPlaceholder + 4),
-                () -> assertEquals(emailPlaceholeder, arrearsEmail, emailPlaceholeder + 4)
+                () -> assertEquals(emailPlaceholder, arrearsEmail, emailPlaceholder + 4)
         );
     }
 
     @Test
-    @Disabled
     @DisplayName("Проверить работу формы оплаты»")
     void checkPayForm() {
         inputDataInForm();
