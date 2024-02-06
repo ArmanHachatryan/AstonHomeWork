@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class BasketTest extends BaseTest {
     @Test
     public void checkIsRedirectToListing() {
-        basePage.open(Constant.Urls.WILDBERRIS_HOME_PAGE);
+        basePage.open(Constant.Urls.WILDBERRIES_HOME_PAGE);
 
         homePage
                 .enterData()

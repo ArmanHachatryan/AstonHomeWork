@@ -20,7 +20,7 @@ public class BasePage {
     }
 
     public WebElement waitElementIsVisible(WebElement element) {
-        new WebDriverWait(driver, Duration.ofSeconds(Constant.TimeoutVariable.EXPLCIT_WAIT))
+        new WebDriverWait(driver, Duration.ofSeconds(Constant.TimeoutVariable.EXPLICIT_WAIT))
                 .until(ExpectedConditions.visibilityOf(element));
         return element;
     }
