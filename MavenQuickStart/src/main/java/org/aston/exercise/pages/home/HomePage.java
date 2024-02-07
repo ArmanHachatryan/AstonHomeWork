@@ -9,15 +9,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class HomePage extends BasePage {
-    public HomePage(WebDriver driver) {
-        super(driver);
-    }
-
     private final By cardLowerPriceLocator = By.xpath("//article/.//ins");
     private final By cardProductNameLocator = By.xpath("//span[@class='product-card__name']");
     private final By cardBtnAddToBasketLocator = By.className("product-card__add-basket");
     private List<String> productNames;
     private List<String> lowerPrices;
+
+    public HomePage(WebDriver driver) {
+        super(driver);
+    }
 
     public HomePage addToBasket(int count) {
         //беру названия из карточки
@@ -30,18 +30,11 @@ public class HomePage extends BasePage {
         List<WebElement> cardLowerPrices = driver.findElements(cardLowerPriceLocator);
         lowerPrices = cardLowerPrices.stream()
                 .limit(count)
-                .map(p -> p.getText())
+                .map(WebElement::getText)
                 .collect(Collectors.toList());
 
         List<WebElement> btn = driver.findElements(cardBtnAddToBasketLocator);
         btn.stream().limit(count).forEach(WebElement::click);
-        return this;
-    }
-
-    public HomePage clickBtn() {
-        driver.findElement(cardBtnAddToBasketLocator).click();
-
-
         return this;
     }
 }
