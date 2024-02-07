@@ -6,15 +6,14 @@ import org.aston.exercise.pages.base.BasePage;
 import org.aston.exercise.pages.home.HomePage;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 
 public class BaseTest {
     protected WebDriver driver = CommonActions.createDriver();
-    protected BasePage basePage = new BasePage(driver);
-    //    protected BasePage basePage = PageFactory.initElements(driver, BasePage.class);
-    protected HomePage homePage = new HomePage(driver);
-//    protected HomePage homePage = PageFactory.initElements(driver, HomePage.class);
+    protected BasePage basePage = PageFactory.initElements(driver, BasePage.class);
+    protected HomePage homePage = PageFactory.initElements(driver, HomePage.class);
 
     @AfterTest
     public void clearCookiesAndLocalStorage() {

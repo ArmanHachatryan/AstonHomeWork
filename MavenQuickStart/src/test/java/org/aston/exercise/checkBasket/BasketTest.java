@@ -6,11 +6,10 @@ import org.testng.annotations.Test;
 
 public class BasketTest extends BaseTest {
     @Test
-    public void checkIsRedirectToListing() {
+    public void checkBasket() {
         basePage.open(Constant.Urls.WILDBERRIES_HOME_PAGE);
 
-        homePage
-                .enterData()
-                .click();
+        homePage.addToBasket(3);
+//        homePage.clickBtn();
     }
 }
