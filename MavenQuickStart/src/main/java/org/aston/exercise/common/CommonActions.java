@@ -12,7 +12,6 @@ import java.time.Duration;
 public class CommonActions {
     public static WebDriver createDriver() {
         WebDriver driver = null;
-
         switch (Config.PLATFORM_AND_BROWSER) {
             case "win_chrome":
                 WebDriverManager.chromedriver().setup();
