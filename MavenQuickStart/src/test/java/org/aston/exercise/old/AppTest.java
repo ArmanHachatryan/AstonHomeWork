@@ -1,4 +1,4 @@
-package org.aston.exercise;
+package org.aston.exercise.old;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
@@ -46,6 +46,7 @@ public class AppTest {
         );
 
         assertEquals("Онлайн пополнение\nбез комиссии", paySectionTitle.getText());
+
     }
 
     @Test
