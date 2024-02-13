@@ -39,46 +39,6 @@ public class AppTest {
     }
 
     @Test
-    @DisplayName("Проверить название указанного блока")
-    void checkBlockTitle() {
-        WebElement paySectionTitle = driver.findElement(By.xpath
-                ("//div[@class='pay__wrapper']/h2")
-        );
-
-        assertEquals("Онлайн пополнение\nбез комиссии", paySectionTitle.getText());
-
-    }
-
-    @Test
-    @DisplayName("Проверить наличие логотипов платёжных систем")
-    void checkLogo() {
-        List<WebElement> logos = driver.findElements(
-                By.xpath("//div[@class='pay__partners']/.//img")
-        );
-
-        logos.forEach(p -> assertTrue(p.isDisplayed(), p.getAttribute("alt")));
-    }
-
-    @Test
-    @DisplayName("Проверить работу ссылки «Подробнее о сервисе»")
-    void checkLink() {
-        String expectedLink = "https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/";
-
-        WebElement link = driver.findElement(
-                By.xpath("//div[@class='pay__wrapper']/a")
-        );
-
-        assertTrue(link.isEnabled());
-        assertTrue(link.isDisplayed());
-
-        String linkPath = link.getAttribute("href");
-        driver.get(linkPath);
-
-        assertEquals(expectedLink, linkPath);
-        assertEquals("Порядок оплаты и безопасность интернет платежей", driver.getTitle());
-    }
-
-    @Test
     @DisplayName("Проверить работу кнопки «Продолжить»")
     void checkForm() {
         final String PHONE_NUMBER = "297777777";

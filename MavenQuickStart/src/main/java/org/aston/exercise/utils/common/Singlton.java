@@ -12,14 +12,15 @@ import static org.aston.exercise.utils.constants.Constant.TimeoutVariable.IMPLIC
 
 public class Singlton {
     private static Singlton instance;
-    private WebDriver driver;
+    private static WebDriver driver;
 
     private Singlton() {
     }
 
     public static WebDriver getInstance() {
-        if (instance == null)
+        if (instance == null) {
             instance = new Singlton();
+        }
         return instance.createDriver();
     }
 
