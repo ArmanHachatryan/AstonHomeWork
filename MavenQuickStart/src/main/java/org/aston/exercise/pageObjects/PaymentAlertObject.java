@@ -2,7 +2,6 @@ package org.aston.exercise.pageObjects;
 
 import org.aston.exercise.elements.TextElement;
 import org.aston.exercise.pageObjects.base.BaseObject;
-import org.aston.exercise.utils.common.Driver;
 import org.openqa.selenium.By;
 
 public class PaymentAlertObject extends BaseObject {

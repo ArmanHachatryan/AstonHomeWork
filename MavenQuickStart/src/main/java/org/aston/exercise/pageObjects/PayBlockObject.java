@@ -48,8 +48,6 @@ public class PayBlockObject extends BaseObject {
         }
     }
 
-
-
     public boolean logoIsDisplayed(String name) {
         LogoElement logo = logos.stream().filter(p -> p.getElementName().equals(name)).findFirst().get();
         return logo.isDisplayed();

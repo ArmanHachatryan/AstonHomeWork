@@ -1,7 +1,6 @@
 package org.aston.exercise.base;
 
 import org.aston.exercise.pages.HomePage;
-import org.aston.exercise.pages.PaymentInfoPage;
 import org.aston.exercise.pages.base.BasePage;
 import org.aston.exercise.utils.common.Driver;
 import org.aston.exercise.utils.constants.Constant;
