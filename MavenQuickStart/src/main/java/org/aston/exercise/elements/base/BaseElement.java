@@ -1,12 +1,12 @@
 package org.aston.exercise.elements.base;
 
-import org.aston.exercise.utils.common.Singlton;
+import org.aston.exercise.utils.common.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class BaseElement {
 
-    protected WebDriver driver = Singlton.getInstance();
+    protected WebDriver driver = Driver.getInstance();
     protected final By locator;
     protected final String name;
 

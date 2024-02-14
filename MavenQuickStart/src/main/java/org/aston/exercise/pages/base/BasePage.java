@@ -1,14 +1,17 @@
 package org.aston.exercise.pages.base;
 
-import org.aston.exercise.utils.common.Singlton;
-import org.junit.jupiter.api.Assertions;
+import org.aston.exercise.pageObjects.CookiesObject;
+import org.aston.exercise.utils.common.Driver;
+import org.openqa.selenium.support.PageFactory;
 
 public class BasePage {
     public static void open(String url) {
-        Singlton.getInstance().get(url);
+        Driver.getInstance().get(url);
     }
 
     public static void goBack() {
-        Singlton.getInstance().navigate().back();
+        Driver.getInstance().navigate().back();
     }
+
+    public static CookiesObject cookiesObject = PageFactory.initElements(Driver.getInstance(), CookiesObject.class);
 }

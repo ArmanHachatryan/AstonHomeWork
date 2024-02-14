@@ -10,16 +10,16 @@ import java.time.Duration;
 import static org.aston.exercise.utils.common.Config.PLATFORM_AND_BROWSER;
 import static org.aston.exercise.utils.constants.Constant.TimeoutVariable.IMPLICIT_WAIT;
 
-public class Singlton {
-    private static Singlton instance;
+public class Driver {
+    private static Driver instance;
     private static WebDriver driver;
 
-    private Singlton() {
+    private Driver() {
     }
 
     public static WebDriver getInstance() {
         if (instance == null) {
-            instance = new Singlton();
+            instance = new Driver();
         }
         return instance.createDriver();
     }

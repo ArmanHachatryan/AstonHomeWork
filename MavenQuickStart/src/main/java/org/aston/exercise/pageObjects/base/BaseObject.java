@@ -1,6 +1,6 @@
 package org.aston.exercise.pageObjects.base;
 
-import org.aston.exercise.utils.common.Singlton;
+import org.aston.exercise.utils.common.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -11,7 +11,7 @@ import static org.aston.exercise.utils.constants.Constant.TimeoutVariable.EXPLIC
 
 public class BaseObject {
     public WebElement waitElementIsVisible(WebElement element) {
-        new WebDriverWait(Singlton.getInstance(), Duration.ofSeconds(EXPLICIT_WAIT))
+        new WebDriverWait(Driver.getInstance(), Duration.ofSeconds(EXPLICIT_WAIT))
                 .until(ExpectedConditions.visibilityOf(element));
         return element;
     }
