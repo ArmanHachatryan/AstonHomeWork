@@ -5,7 +5,7 @@ import org.aston.exercise.pageObjects.base.BaseObject;
 import org.openqa.selenium.By;
 
 public class CookiesObject extends BaseObject {
-    private ButtonElement acceptButtonElement = new ButtonElement(By.xpath("//button[@id='cookie-agree']"), "Accept");
+    private ButtonElement acceptButtonElement = new ButtonElement(By.xpath("//button[contains(@id, 'cookie-agree')]"), "Accept");
 
     public void acceptCookies() {
         acceptButtonElement.click();
