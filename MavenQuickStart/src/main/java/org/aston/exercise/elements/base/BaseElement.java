@@ -19,6 +19,10 @@ public class BaseElement {
         return driver.findElement(locator).getText();
     }
 
+    public String getTextFromAttribute(String attributeName) {
+        return driver.findElement(locator).getAttribute(attributeName);
+    }
+
     public String getElementName() {
         return name;
     }

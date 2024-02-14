@@ -40,9 +40,9 @@ public class PayBlockObject extends BaseObject {
             return new PaymentForm();
         }
 
-        public HomePage clickBtn() {
+        public PaymentAlertObject clickBtn() {
             paymentForm.btnSend.click();
-            return PageFactory.initElements(Driver.getInstance(), HomePage.class);
+            return new PaymentAlertObject();
         }
     }
 
