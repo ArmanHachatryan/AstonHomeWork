@@ -17,8 +17,4 @@ public class BaseTest {
 
     ResponseSpecification statusCodeSpec = expect()
             .statusCode(200);
-
-    ResponseSpecification mikeResponseSpec = expect()
-            .body("json.name", equalTo(mike.getName()))
-            .body("json.job", equalTo(mike.getJob()));
 }
