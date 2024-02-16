@@ -5,7 +5,6 @@ import io.restassured.specification.ResponseSpecification;
 
 import static io.restassured.RestAssured.expect;
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
 
 public class BaseTest {
     Person mike = new Person("Mike", "QA manual");
