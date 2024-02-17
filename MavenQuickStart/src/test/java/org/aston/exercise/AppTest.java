@@ -5,8 +5,10 @@ import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.android.AndroidDriver;
 
+import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Path;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.Test;
@@ -14,19 +16,17 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class AppTest
-{
+public class AppTest {
     AndroidDriver<AndroidElement> driver = null;
 
     public void initialize() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"Pixel 7 Pro");
-        capabilities.setCapability(MobileCapabilityType.APP,"C:\\Users\\winne\\Downloads\\Calculator_8.4.1 (520193683)_Apkpure.apk");
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel 7 API 34");
+        capabilities.setCapability(MobileCapabilityType.APP, Constants.Urls.calcApk);
+        capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
 
-        capabilities.setCapability(MobileCapabilityType.NO_RESET,true);
         try {
-            driver = new AndroidDriver<>(new
-                    URL("http://127.0.0.1:4723/wd/hub"),capabilities);
+            driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         } catch (MalformedURLException e) {
             System.out.println(e.getMessage());
