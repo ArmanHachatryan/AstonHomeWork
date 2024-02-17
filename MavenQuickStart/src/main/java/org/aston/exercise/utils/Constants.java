@@ -1,4 +1,4 @@
-package org.aston.exercise;
+package org.aston.exercise.utils;
 
 public class Constants {
     public static class Urls {
