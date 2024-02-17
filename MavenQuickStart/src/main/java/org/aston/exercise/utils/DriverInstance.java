@@ -13,7 +13,8 @@ public class DriverInstance {
     private static DriverInstance instanceDriver;
     private static AndroidDriver<AndroidElement> driver;
 
-    private DriverInstance() {}
+    private DriverInstance() {
+    }
 
     public static AndroidDriver<AndroidElement> getDriver() {
         if (instanceDriver == null) {
