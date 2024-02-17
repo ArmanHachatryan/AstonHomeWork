@@ -16,13 +16,13 @@ public class BaseTest {
     protected static AndroidDriver<AndroidElement> driver;
     protected MainPage mainPage = PageFactory.initElements(driver, MainPage.class);
 
-    @BeforeEach
-    public void setup() {
+    @BeforeAll
+    public static void setup() {
         driver = DriverInstance.getDriver();
     }
 
-    @AfterEach
-    public  void teardown() {
+    @AfterAll
+    public static void teardown() {
         DriverInstance.quit();
     }
 }
