@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeClass;
 
 public class BaseTest {
     protected static AndroidDriver<AndroidElement> driver;
-    protected MainPage mainPage = PageFactory.initElements(driver, MainPage.class);
+
 
     @BeforeClass
     public static void setup() {
