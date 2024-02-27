@@ -1,18 +1,27 @@
 package org.aston.exercise;
 
+import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.aston.exercise.Constants.StatusCode.SUCCESS;
 import static org.hamcrest.Matchers.equalTo;
 
 public class EchoRequestTest extends BaseTest
 {
+    Person mike = new Person("Mike", "QA manual");
+    Person alex = new Person("Alex", "Manager");
+
+    RequestSpecification baseSpec = given()
+            .log().body()
+            .baseUri("https://postman-echo.com");
+
     @Test
     public void checkGetRequest() {
         baseSpec
                 .when().get("/get")
                 .then()
-                .spec(statusCodeSpec);
+                .statusCode(SUCCESS);
     }
 
     @Test
@@ -23,7 +32,7 @@ public class EchoRequestTest extends BaseTest
                 .then()
                 .body("json.name", equalTo(mike.getName()))
                 .body("json.job", equalTo(mike.getJob()))
-                .spec(statusCodeSpec);
+                .statusCode(SUCCESS);
     }
 
     @Test
@@ -34,7 +43,7 @@ public class EchoRequestTest extends BaseTest
                 .then()
                 .body("json.name", equalTo(alex.getName()))
                 .body("json.job", equalTo(alex.getJob()))
-                .spec(statusCodeSpec);
+                .statusCode(SUCCESS);
     }
 
     @Test
@@ -45,7 +54,7 @@ public class EchoRequestTest extends BaseTest
                 .then()
                 .body("json.name", equalTo(alex.getName()))
                 .body("json.job", equalTo(alex.getJob()))
-                .spec(statusCodeSpec);
+                .statusCode(SUCCESS);
     }
 
     @Test
@@ -56,6 +65,6 @@ public class EchoRequestTest extends BaseTest
                 .then()
                 .body("json.name", equalTo(alex.getName()))
                 .body("json.job", equalTo(alex.getJob()))
-                .spec(statusCodeSpec);
+                .statusCode(SUCCESS);
     }
 }
