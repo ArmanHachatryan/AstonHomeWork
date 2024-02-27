@@ -1,12 +1,13 @@
 package org.aston.exercise.pages.base;
 
-import org.aston.exercise.constants.Attribute;
-import org.aston.exercise.constants.Constant;
+import org.aston.exercise.common.Constant.Attribute;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
+
+import static org.aston.exercise.common.Constant.TimeoutVariable.EXPLICIT_WAIT;
 
 public class BasePage {
     protected WebDriver driver;
@@ -26,7 +27,7 @@ public class BasePage {
     }
 
     public WebElement waitAttributeToBe(WebElement element, Attribute attribute, String value) {
-        new WebDriverWait(driver, Duration.ofSeconds(Constant.TimeoutVariable.EXPLICIT_WAIT))
+        new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT))
                 .until(ExpectedConditions.attributeToBe(element, attribute.toString(), value));
         return element;
     }

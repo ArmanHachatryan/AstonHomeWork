@@ -1,4 +1,4 @@
-package org.aston.exercise.pages.basket;
+package org.aston.exercise.pages;
 
 import org.aston.exercise.pages.base.BasePage;
 import org.openqa.selenium.By;
@@ -17,7 +17,7 @@ public class BasketPage extends BasePage {
 
     private static class Good {
         private static final By nameLocator = By.xpath("//span[@class='good-info__good-name']");
-        private static final By priceLocator = By.xpath("//div[@class='list-item__price-new']");
+        private static final By priceLocator = By.className("list-item__price-new");
     }
 
     public BasketPage(WebDriver driver) {

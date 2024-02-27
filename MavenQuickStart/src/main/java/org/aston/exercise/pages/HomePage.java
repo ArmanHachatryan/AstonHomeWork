@@ -1,6 +1,6 @@
-package org.aston.exercise.pages.home;
+package org.aston.exercise.pages;
 
-import org.aston.exercise.constants.Attribute;
+import org.aston.exercise.common.Constant;
 import org.aston.exercise.pages.base.BasePage;
 import org.openqa.selenium.*;
 import java.util.List;
@@ -17,7 +17,7 @@ public class HomePage extends BasePage {
     }
 
     private static class Popup {
-        private static final By btnLocator = By.xpath("//div[@class='popup__content']/ul/li");
+        private static final By btnLocator = By.xpath("//div[@class='popup__content']/.//li");
     }
     public HomePage(WebDriver driver) {
         super(driver);
@@ -27,7 +27,7 @@ public class HomePage extends BasePage {
         List<WebElement> cardProductNames = driver.findElements(Card.productNameLocator);
         selectedProducts = cardProductNames.stream()
                 .limit(count)
-                .map(p -> p.getAttribute(Attribute.innerText.toString()).split("/")[1].trim())
+                .map(p -> p.getAttribute(Constant.Attribute.innerText.toString()).split("/")[1].trim())
                 .collect(Collectors.toList());
 
         List<WebElement> cardLowerPrices = driver.findElements(Card.lowerPriceLocator);

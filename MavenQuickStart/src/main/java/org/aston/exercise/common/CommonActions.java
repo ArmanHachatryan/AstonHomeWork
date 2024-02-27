@@ -1,7 +1,6 @@
 package org.aston.exercise.common;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.aston.exercise.constants.Constant;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -12,7 +11,7 @@ import java.time.Duration;
 public class CommonActions {
     public static WebDriver createDriver() {
         WebDriver driver = null;
-        switch (Config.PLATFORM_AND_BROWSER) {
+        switch (Constant.Config.PLATFORM_AND_BROWSER) {
             case "win_chrome":
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
@@ -22,7 +21,7 @@ public class CommonActions {
                 driver = new FirefoxDriver();
                 break;
             default:
-                Assert.fail("Incorrent platform or browser name: " + Config.PLATFORM_AND_BROWSER);
+                Assert.fail("Incorrent platform or browser name: " + Constant.Config.PLATFORM_AND_BROWSER);
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Constant.TimeoutVariable.IMPLICIT_WAIT));
